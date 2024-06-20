@@ -8,11 +8,13 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
+
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
+        //tabBarStyle: {position:'absolute', top:0}
       }}>
       <Tabs.Screen
         name="index"
@@ -23,6 +25,7 @@ export default function TabLayout() {
           ),
         }}
       />
+
       <Tabs.Screen
         name="explore"
         options={{
@@ -31,6 +34,23 @@ export default function TabLayout() {
             <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
           ),
         }}
+      />
+
+      <Tabs.Screen
+        name="login"
+        options={{href: null, }}
+      />
+      <Tabs.Screen
+        name="registred"
+        options={{href: null, }}
+      />
+         <Tabs.Screen
+        name="setPassword"
+        options={{href: null, }}
+      />
+         <Tabs.Screen
+        name="profile"
+        options={{href: null, }}
       />
     </Tabs>
   );

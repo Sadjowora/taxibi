@@ -1,24 +1,24 @@
 import { Image, StyleSheet, Platform, SafeAreaView, View, Pressable } from 'react-native';
-
 import { HelloWave } from '@/components/HelloWave';
 //import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { Link } from 'expo-router';
 
 export default function HomeScreen() {
   return (
-    <SafeAreaView>
-      <ThemedView style={styles.container}> 
-       <View style={styles.containerLogo}> 
+    <SafeAreaView style={styles.container}> 
+       <ThemedView style={styles.containerLogo}> 
         <Image
             source={require('@/assets/images/avionHome.png')}
             style={styles.reactLogo}
           />
-        </View>
+        </ThemedView>
+        <ThemedView style={{backgroundColor:"yellow", flex:0.5}}>
         <View style={styles.stepContainer}>
-          <ThemedView style={{width:220, backgroundColor:'rgb(210, ,240, 230)'}}>
+          <ThemedView style={{backgroundColor:"yellow"}}>
              <ThemedView style={styles.titleContainer}>
-                <ThemedText type="title"> Bienvenue </ThemedText>
+                <ThemedText type="title" style={{backgroundColor:"yellow"}}> Bienvenue </ThemedText>
                 <HelloWave />
             </ThemedView>
             <ThemedText style={styles.message} >
@@ -26,17 +26,21 @@ export default function HomeScreen() {
             </ThemedText> 
           </ThemedView>        
         </View> 
-        <View style={{flexDirection: 'column', alignItems: 'center', marginTop:150}} >
-              <Pressable   
-                 style={{backgroundColor:'rgb(210,230,255)', marginBottom: 20}}
-              >  S'inscrire
-              </Pressable>
-              <Pressable
-                 style={{backgroundColor:'rgb(241,230,210'}}   
-              > Se connecter
-             </Pressable>  
-        </View>
-      </ThemedView>        
+        <ThemedView style={{flexDirection: 'column', alignItems: 'center', marginBottom:0, flex:0.4, backgroundColor:"yellow"}} >
+              <Link href='registred' asChild>
+                <Pressable   
+                  style={styles.pressableRegistred} 
+                > Crée un compte
+                </Pressable>
+              </Link>
+              <Link href='login' asChild>
+                <Pressable
+                  style={styles.pressableConnexion}   
+                > Se connecter
+              </Pressable>  
+             </Link>
+        </ThemedView>     
+       </ThemedView>     
     </SafeAreaView>
   );
 }
@@ -47,8 +51,12 @@ const styles = StyleSheet.create({
    padding: 10
   },
   containerLogo: {
-    backgroundColor:"lavender",
-    flex: 1
+    backgroundColor:"#fff",
+    flex: 0.6,
+    alignContent:'center',
+    alignItems:'center',
+    flexDirection:'row',
+    borderColor:'red'
   },
   titleContainer: {
     flexDirection: 'row',
@@ -59,20 +67,47 @@ const styles = StyleSheet.create({
     padding: 10
   },
   message: {
-    padding: 10
+    padding: 10,
+    color:'dimgray'
   }, 
-  stepContainer: { 
-    marginBottom: 8,
+  stepContainer: {
+    marginBottom: 100,
     backgroundColor:"yellow",
-    paddingTop: 3,
+    paddingTop: 5,
     flexDirection: 'row',
     alignItems: 'center', 
-    justifyContent:'center' 
+    justifyContent:'center',
+    flex:0.4
+  },
+  pressableConnexion:{
+    fontFamily:'Roboto',
+    backgroundColor:'#ffffff', 
+    marginBottom: 20,
+    padding:15,
+    width:300,
+    paddingLeft:35,
+    paddingRight:35,
+    borderRadius: 5,
+    fontSize:18,
+    textAlign: 'center'
+  },
+  pressableRegistred : {
+    fontFamily:'Roboto',
+    backgroundColor:'black', 
+    marginBottom: 20, 
+    padding:15,
+    width:300,
+    paddingLeft:35, 
+    paddingRight:35,
+    borderRadius: 5, 
+    color:'yellow',
+    fontSize: 18,
+    textAlign: 'center'
   },
   reactLogo: {
     height: 250,
-    width: 380, 
-    marginBottom:100,
+    width: 395, 
+    marginBottom:1,
     borderRadius:4
   },
 });
