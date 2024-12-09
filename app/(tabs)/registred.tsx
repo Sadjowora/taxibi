@@ -73,6 +73,7 @@ return (
                     onValueChange={(value) => setSelectedValue(value)}
                     value={selectedValue}
                     style={pickerSelectStyles}
+                    //useNativeAndroidPickerStyle={false}
                  /> 
                </ThemedView>
                <ThemedView style={{flex:0.3, marginTop:5}}>
@@ -192,7 +193,8 @@ const pickerSelectStyles = StyleSheet.create({
       borderColor : 'gray' , 
       borderRadius : 4 , 
       color : 'black' , 
-      paddingRight : 30
+      paddingRight : 30,
+      height :40
     },
   inputAndroid : { 
       fontSize : 16 , 
@@ -202,7 +204,8 @@ const pickerSelectStyles = StyleSheet.create({
       borderColor : 'purple' , 
       borderRadius : 8 , 
       color : 'black' , 
-      paddingRight : 30 
+      paddingRight : 30,
+      height :40
      } 
   });           
             

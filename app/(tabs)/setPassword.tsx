@@ -35,7 +35,7 @@ return (
                   Veuillez rajouter des chiffres des lettres majuscule 
                 </ThemedText>
               </ThemedView>
-            <Link href='profile' asChild> 
+            <Link href='setProfile' asChild> 
                 <Pressable 
                 style={styles.pressenreg}
                 >

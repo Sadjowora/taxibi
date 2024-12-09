@@ -1,5 +1,6 @@
-import { Image, StyleSheet, Platform, SafeAreaView, View, Pressable } from 'react-native';
-import { HelloWave } from '@/components/HelloWave';
+
+import { Image, StyleSheet, SafeAreaView, View, Pressable } from 'react-native';
+//import { HelloWave } from '@/components/HelloWave';
 //import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -9,7 +10,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}> 
        <ThemedView style={styles.containerLogo}> 
-        <Image
+         <Image
             source={require('@/assets/images/avionHome.png')}
             style={styles.reactLogo}
           />
@@ -18,8 +19,7 @@ export default function HomeScreen() {
         <View style={styles.stepContainer}>
           <ThemedView style={{backgroundColor:"yellow"}}>
              <ThemedView style={styles.titleContainer}>
-                <ThemedText type="title" style={{backgroundColor:"yellow"}}> Bienvenue </ThemedText>
-                <HelloWave />
+                <ThemedText type="title" style={{backgroundColor:"yellow"}}> Bienvenue </ThemedText>                 
             </ThemedView>
             <ThemedText style={styles.message} >
               Bonne expérience à vous!
@@ -27,7 +27,7 @@ export default function HomeScreen() {
           </ThemedView>        
         </View> 
         <ThemedView style={{flexDirection: 'column', alignItems: 'center', marginBottom:0, flex:0.4, backgroundColor:"yellow"}} >
-              <Link href='registred' asChild>
+              <Link href='registred'  asChild>
                 <Pressable   
                   style={styles.pressableRegistred} 
                 > Crée un compte
@@ -51,17 +51,19 @@ const styles = StyleSheet.create({
    padding: 10
   },
   containerLogo: {
+    flex: 0.5,
+    paddingTop: 50,
     backgroundColor:"#fff",
-    flex: 0.6,
     alignContent:'center',
     alignItems:'center',
-    flexDirection:'row',
+    flexDirection:'column',
     borderColor:'red'
   },
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom:12
+    marginBottom:12,
+    backgroundColor:'yellow'
   },
   down: {
     padding: 10

@@ -1,6 +1,5 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-
 import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
@@ -8,16 +7,15 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
-
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        //tabBarStyle: {position:'absolute', top:0}
       }}>
-      <Tabs.Screen
-        name="index"
+
+      <Tabs.Screen        
+        name="home"
         options={{
           title: 'Home',
           tabBarIcon: ({ color, focused }) => (
@@ -35,21 +33,20 @@ export default function TabLayout() {
           ),
         }}
       />
-
+      <Tabs.Screen 
+            name="registred"
+            options={{href: null}}
+       />
       <Tabs.Screen
-        name="login"
-        options={{href: null, }}
-      />
-      <Tabs.Screen
-        name="registred"
-        options={{href: null, }}
-      />
-         <Tabs.Screen
         name="setPassword"
         options={{href: null, }}
       />
-         <Tabs.Screen
-        name="profile"
+      <Tabs.Screen
+        name="setProfile"
+        options={{href: null, }}
+      />
+      <Tabs.Screen
+        name="activerGps"
         options={{href: null, }}
       />
     </Tabs>

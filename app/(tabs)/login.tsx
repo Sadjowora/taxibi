@@ -1,17 +1,12 @@
 import {StyleSheet, SafeAreaView, TextInput, Pressable} from 'react-native';
-//import ParallaxScrollView from '@/components/ParallaxScrollView';
-//import { useState } from 'react';
+//import ParallaxScrollView from '@/components/ParallaxScrollView'; 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';  
 import FontAwesome from '@expo/vector-icons/FontAwesome6';
 import Zocial from '@expo/vector-icons/Zocial'; 
-import { Link } from 'expo-router'; 
-//import { useEffect, useState } from 'react';
+import { Link } from 'expo-router';  
  
-export default function Login() { 
- //const [motdepasse, setMdp] = useState(null); 
-
- 
+export default function Login() {  
 return (
     <SafeAreaView>
        <ThemedView style={styles.container}>   
@@ -21,16 +16,23 @@ return (
                 <TextInput 
                   style={styles.input}
                   inputMode='email'
+                  textContentType='emailAddress'
                   placeholder='exemple@taxibi.com'
                   placeholderTextColor='gainsboro'
                 />
                 <TextInput 
-                  style={styles.input}
-                  //inputMode='password'
+                  style={styles.input} 
+                  textContentType='password'
                   placeholder='Mot de passe'
                   placeholderTextColor='gainsboro'
                 />                
-               <Link href='registred' asChild> 
+               <ThemedView style={{flexDirection:'column', alignItems:'flex-end'}}>
+                <Link href='/' 
+                      style={styles.forgetMotdepasse}> 
+                      Mot de passe oublier ?
+                </Link> 
+                </ThemedView>
+               <Link href='activerGps' asChild> 
                   <Pressable 
                     style={styles.pressenreg}
                     >
@@ -129,5 +131,9 @@ const styles = StyleSheet.create({
     justifyContent:'space-around',
     alignItems:'center',
     width: 200,
-  } 
+  },
+  forgetMotdepasse: {
+    color: 'red',
+    fontWeight:500
+  }
 });
